@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonCos: UIButton!
     @IBOutlet weak var buttonTan: UIButton!
     
+    @IBOutlet weak var buttonRad: UIButton!
+    @IBOutlet weak var buttonDeg: UIButton!
+    
     var calcEngine :CalculatorEngine?
     
     override func viewDidLoad() {
@@ -25,6 +28,27 @@ class ViewController: UIViewController {
         if self.calcEngine == nil {
             self.calcEngine = CalculatorEngine()
         }
+    }
+    
+    @IBAction func switchAngle(_ sender: UIButton) {
+        let angleType = sender.currentTitle!
+        if angleType == "rad" {
+            highlightAndDisableButtonRad()
+            self.calcEngine?.angleInDegree = false
+        } else {
+            highlightAndDisableButtonDeg()
+            self.calcEngine?.angleInDegree = true
+        }
+    }
+    
+    private func highlightAndDisableButtonRad(){
+        buttonRad.isEnabled = false
+        buttonDeg.isEnabled = true
+    }
+    
+    private func highlightAndDisableButtonDeg(){
+        buttonRad.isEnabled = true
+        buttonDeg.isEnabled = false
     }
     
     var userHasStartedTyping = false
@@ -98,6 +122,13 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func piPressed() {
+        userHasStartedTyping = true
+        self.labelDisplay.text = "\(3.14159265)"
+        enter()
+    }
+    
+    
     @IBAction func operation(_ sender: UIButton) {	
         
         let operation = sender.currentTitle!
@@ -115,8 +146,6 @@ class ViewController: UIViewController {
         }
         
         enter()
-        
-        
     }
     
     @IBAction func inverseValue() {
