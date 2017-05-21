@@ -37,6 +37,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rS8-gf-ftl">
                                 <rect key="frame" x="24" y="93" width="76" height="64"/>
                                 <state key="normal" title="fn"/>
+                                <connections>
+                                    <action selector="functionKeyPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="xfH-OU-PaY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrh-61-aRh">
                                 <rect key="frame" x="108" y="93" width="75.5" height="64"/>
@@ -385,6 +388,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonCos" destination="x1X-7a-5n4" id="zIp-6Z-tc4"/>
+                        <outlet property="buttonSin" destination="Ts1-2n-AOW" id="VSK-iu-MAz"/>
+                        <outlet property="buttonTan" destination="X8h-AM-HrI" id="5WX-jg-JI8"/>
                         <outlet property="labelDisplay" destination="vQE-s0-3HT" id="7mV-LD-mWA"/>
                         <outlet property="labelTapeDisplay" destination="tIn-On-FZt" id="rkX-JS-npA"/>
                     </connections>

@@ -11,8 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var labelDisplay: UILabel!
-    
     @IBOutlet weak var labelTapeDisplay: UILabel!
+    
+    @IBOutlet weak var buttonSin: UIButton!
+    @IBOutlet weak var buttonCos: UIButton!
+    @IBOutlet weak var buttonTan: UIButton!
     
     var calcEngine :CalculatorEngine?
     
@@ -64,10 +67,34 @@ class ViewController: UIViewController {
     
     var displayValue : Double {
         get {
+            if labelDisplay.text! == "nan" {
+                return 0.0;
+            }
             return ( NumberFormatter().number( from: labelDisplay.text! )?.doubleValue )!
         }
         set ( newValue ){
             labelDisplay.text = "\(newValue)"
+        }
+    }
+    
+    
+    var functionMode = false;
+    
+    @IBAction func functionKeyPressed() {
+        functionMode = !functionMode;
+        self.updateButtonOnFunctionMode();
+    }
+    
+    private func updateButtonOnFunctionMode() {
+        if functionMode {
+            self.buttonSin.setTitle( "asin", for: UIControlState.normal)
+            self.buttonCos.setTitle( "acos", for: UIControlState.normal)
+            self.buttonTan.setTitle( "atan", for: UIControlState.normal)
+        } else {
+            self.buttonSin.setTitle( "sin", for: UIControlState.normal)
+            self.buttonCos.setTitle( "cos", for: UIControlState.normal)
+            self.buttonTan.setTitle( "tan", for: UIControlState.normal)
+            
         }
     }
     
@@ -102,7 +129,7 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         print( "Pressed Enter")
-        self.userHasStartedTyping = false;
+        self.userHasStartedTyping = false
         self.calcEngine!.updateStackWithValue(value: displayValue )
         
         print( "Operand Stack on engine = \(self.calcEngine!.operandStack)")
