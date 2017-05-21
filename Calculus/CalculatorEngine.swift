@@ -89,7 +89,16 @@ class CalculatorEngine :NSObject
             {
                 return atan( self.operandStack.removeLast() )
             }
-            
+        case "log10":
+            if operandStack.count >= 1
+            {
+                return log( self.operandStack.removeLast() )
+            }
+        case "loge":
+            if operandStack.count > 1
+            {
+                return ( log( self.operandStack.removeLast() ) / log( self.operandStack.removeLast() ) )
+            }
         default: break
             
         }
