@@ -14,6 +14,7 @@
 		711D1E6B1EC77A820010D90C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711D1E6A1EC77A820010D90C /* Assets.xcassets */; };
 		711D1E6E1EC77A820010D90C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711D1E6C1EC77A820010D90C /* LaunchScreen.storyboard */; };
 		717C88771ED02BAD00C18033 /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C88761ED02BAD00C18033 /* CalculatorEngine.swift */; };
+		71C6736E1ED23326000CFF5A /* TapeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C6736D1ED23326000CFF5A /* TapeStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		711D1E6D1EC77A820010D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711D1E6F1EC77A820010D90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		717C88761ED02BAD00C18033 /* CalculatorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
+		71C6736D1ED23326000CFF5A /* TapeStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapeStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				711D1E6F1EC77A820010D90C /* Info.plist */,
 				711D1E671EC77A820010D90C /* Calculus.xcdatamodeld */,
 				717C88761ED02BAD00C18033 /* CalculatorEngine.swift */,
+				71C6736D1ED23326000CFF5A /* TapeStack.swift */,
 			);
 			path = Calculus;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				717C88771ED02BAD00C18033 /* CalculatorEngine.swift in Sources */,
 				711D1E631EC77A820010D90C /* ViewController.swift in Sources */,
 				711D1E611EC77A820010D90C /* AppDelegate.swift in Sources */,
+				71C6736E1ED23326000CFF5A /* TapeStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

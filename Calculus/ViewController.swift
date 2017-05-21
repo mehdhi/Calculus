@@ -21,12 +21,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonDeg: UIButton!
     
     var calcEngine :CalculatorEngine?
+    var tapeStack :TapeStack?
+    
+    var functionMode = false
+    var userHasStartedTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if self.calcEngine == nil {
             self.calcEngine = CalculatorEngine()
+        }
+        if self.tapeStack == nil {
+            self.tapeStack = TapeStack()
         }
     }
     
@@ -50,8 +57,6 @@ class ViewController: UIViewController {
         buttonRad.isEnabled = true
         buttonDeg.isEnabled = false
     }
-    
-    var userHasStartedTyping = false
     
     @IBAction func digitPressed(_ sender: UIButton) {
         
@@ -87,6 +92,7 @@ class ViewController: UIViewController {
         labelDisplay.text = "\(0)";
         self.calcEngine?.clearStack()
         userHasStartedTyping = false
+        self.updateTape(key: "AC")
     }
     
     var displayValue : Double {
@@ -100,9 +106,6 @@ class ViewController: UIViewController {
             labelDisplay.text = "\(newValue)"
         }
     }
-    
-    
-    var functionMode = false;
     
     @IBAction func functionKeyPressed() {
         functionMode = !functionMode;
@@ -125,9 +128,7 @@ class ViewController: UIViewController {
     @IBAction func piPressed() {
         userHasStartedTyping = true
         self.labelDisplay.text = "\(3.14159265)"
-        enter()
     }
-    
     
     @IBAction func operation(_ sender: UIButton) {	
         
@@ -136,6 +137,8 @@ class ViewController: UIViewController {
         if userHasStartedTyping {
             enter()
         }
+        
+        updateTape(key: operation)
         
         do {
             try self.displayValue = ( self.calcEngine?.operate( operation: operation ))!
@@ -154,15 +157,38 @@ class ViewController: UIViewController {
         } else {
             self.labelDisplay.text = "-" + self.labelDisplay.text!
         }
+        updateTape(key: "±")
     }
     
     @IBAction func enter() {
-        print( "Pressed Enter")
+        if userHasStartedTyping {
+            var text = self.labelDisplay.text!
+            if text == "3.14159265" {
+                text = "π"
+            }
+            updateTape(key: text)
+            updateTape(key: "↵")
+        }
         self.userHasStartedTyping = false
         self.calcEngine!.updateStackWithValue(value: displayValue )
         
         print( "Operand Stack on engine = \(self.calcEngine!.operandStack)")
         
+    }
+    
+    private func updateTape( key: String ) {
+        self.tapeStack?.push( key: key )
+        if key == "AC" {
+            tapeStack?.clear()
+        }
+        updateTapeDisplay()
+    }
+    
+    private func updateTapeDisplay() {
+        self.labelTapeDisplay.text = self.tapeStack?.secondaryTape()
+        if (self.labelTapeDisplay.text?.isEmpty)! {
+            self.labelTapeDisplay.text = "|"
+        }
     }
 
     override func didReceiveMemoryWarning() {
