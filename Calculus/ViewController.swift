@@ -28,15 +28,38 @@ class ViewController: UIViewController {
     
     @IBAction func digitPressed(_ sender: UIButton) {
         
-        let digit = sender.currentTitle!
+        var digit = sender.currentTitle!
         print("digit pressed = "  + digit )
+        if digit == "." && (labelDisplay.text?.contains("."))! {
+            return
+        }
         if userHasStartedTyping {
             labelDisplay.text = labelDisplay.text! + "\(digit)"
         } else {
+            if digit == "." {
+                digit = "\(0)."
+            }
             labelDisplay.text = digit
             userHasStartedTyping = true;
         }
         
+    }
+    
+    @IBAction func deleteLastCharacter() {
+        if (!(labelDisplay.text?.isEmpty)!) {
+            let endIndex = labelDisplay.text?.index((labelDisplay.text?.endIndex)!, offsetBy: -1)
+            labelDisplay.text = labelDisplay.text?.substring(to: endIndex! )
+            if (labelDisplay.text?.isEmpty)! {
+                labelDisplay.text = "\(0)"
+                userHasStartedTyping = false
+            }
+        }
+    }
+    
+    @IBAction func clearAll() {
+        labelDisplay.text = "\(0)";
+        self.calcEngine?.clearStack()
+        userHasStartedTyping = false
     }
     
     var displayValue : Double {
@@ -48,7 +71,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func operation(_ sender: UIButton) {
+    @IBAction func operation(_ sender: UIButton) {	
         
         let operation = sender.currentTitle!
         
@@ -56,22 +79,35 @@ class ViewController: UIViewController {
             enter()
         }
         
-        self.displayValue = (self.calcEngine?.operate( operation: operation ))!
+        do {
+            try self.displayValue = ( self.calcEngine?.operate( operation: operation ))!
+        } catch {
+            self.labelDisplay.text = "Error"
+            userHasStartedTyping = false;
+            return
+        }
         
         enter()
         
         
     }
     
+    @IBAction func inverseValue() {
+        if (self.labelDisplay.text?.contains("-"))! {
+            self.labelDisplay.text?.remove(at: (self.labelDisplay.text?.startIndex)!)
+        } else {
+            self.labelDisplay.text = "-" + self.labelDisplay.text!
+        }
+    }
+    
     @IBAction func enter() {
         print( "Pressed Enter")
         self.userHasStartedTyping = false;
-        self.calcEngine!.operandStack.append( displayValue )
+        self.calcEngine!.updateStackWithValue(value: displayValue )
         
         print( "Operand Stack on engine = \(self.calcEngine!.operandStack)")
         
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
