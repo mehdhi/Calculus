@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var labelDisplay: UILabel!
     
+    @IBOutlet weak var labelTapeDisplay: UILabel!
+    
     var calcEngine :CalculatorEngine?
     
     override func viewDidLoad() {
