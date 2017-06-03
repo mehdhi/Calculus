@@ -11,8 +11,10 @@
 		711D1E631EC77A820010D90C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D1E621EC77A820010D90C /* ViewController.swift */; };
 		711D1E661EC77A820010D90C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711D1E641EC77A820010D90C /* Main.storyboard */; };
 		711D1E691EC77A820010D90C /* Calculus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 711D1E671EC77A820010D90C /* Calculus.xcdatamodeld */; };
-		711D1E6B1EC77A820010D90C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711D1E6A1EC77A820010D90C /* Assets.xcassets */; };
 		711D1E6E1EC77A820010D90C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711D1E6C1EC77A820010D90C /* LaunchScreen.storyboard */; };
+		71479B221EE24A5C00DA58B5 /* Calculus Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 71479B211EE24A5C00DA58B5 /* Calculus Logo.png */; };
+		71479B261EE2551600DA58B5 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 71479B251EE2551600DA58B5 /* AppIcon.appiconset */; };
+		71479B281EE255B100DA58B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71479B271EE255B100DA58B5 /* Images.xcassets */; };
 		717C88771ED02BAD00C18033 /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C88761ED02BAD00C18033 /* CalculatorEngine.swift */; };
 		71C6736E1ED23326000CFF5A /* TapeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C6736D1ED23326000CFF5A /* TapeStack.swift */; };
 /* End PBXBuildFile section */
@@ -23,9 +25,11 @@
 		711D1E621EC77A820010D90C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		711D1E651EC77A820010D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		711D1E681EC77A820010D90C /* Calculus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calculus.xcdatamodel; sourceTree = "<group>"; };
-		711D1E6A1EC77A820010D90C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711D1E6D1EC77A820010D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711D1E6F1EC77A820010D90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71479B211EE24A5C00DA58B5 /* Calculus Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Calculus Logo.png"; path = "../../../../Volumes/TymSpy/Calculus Logo.png"; sourceTree = "<group>"; };
+		71479B251EE2551600DA58B5 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
+		71479B271EE255B100DA58B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		717C88761ED02BAD00C18033 /* CalculatorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
 		71C6736D1ED23326000CFF5A /* TapeStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapeStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,6 +48,7 @@
 		711D1E541EC77A820010D90C = {
 			isa = PBXGroup;
 			children = (
+				71479B211EE24A5C00DA58B5 /* Calculus Logo.png */,
 				711D1E5F1EC77A820010D90C /* Calculus */,
 				711D1E5E1EC77A820010D90C /* Products */,
 			);
@@ -60,15 +65,16 @@
 		711D1E5F1EC77A820010D90C /* Calculus */ = {
 			isa = PBXGroup;
 			children = (
+				71479B251EE2551600DA58B5 /* AppIcon.appiconset */,
 				711D1E601EC77A820010D90C /* AppDelegate.swift */,
 				711D1E621EC77A820010D90C /* ViewController.swift */,
 				711D1E641EC77A820010D90C /* Main.storyboard */,
-				711D1E6A1EC77A820010D90C /* Assets.xcassets */,
 				711D1E6C1EC77A820010D90C /* LaunchScreen.storyboard */,
 				711D1E6F1EC77A820010D90C /* Info.plist */,
 				711D1E671EC77A820010D90C /* Calculus.xcdatamodeld */,
 				717C88761ED02BAD00C18033 /* CalculatorEngine.swift */,
 				71C6736D1ED23326000CFF5A /* TapeStack.swift */,
+				71479B271EE255B100DA58B5 /* Images.xcassets */,
 			);
 			path = Calculus;
 			sourceTree = "<group>";
@@ -133,8 +139,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71479B261EE2551600DA58B5 /* AppIcon.appiconset in Resources */,
+				71479B281EE255B100DA58B5 /* Images.xcassets in Resources */,
 				711D1E6E1EC77A820010D90C /* LaunchScreen.storyboard in Resources */,
-				711D1E6B1EC77A820010D90C /* Assets.xcassets in Resources */,
+				71479B221EE24A5C00DA58B5 /* Calculus Logo.png in Resources */,
 				711D1E661EC77A820010D90C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
